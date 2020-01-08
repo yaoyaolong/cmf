@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.UserDao">
+    <select id="queryByTime" resultType="Integer">
+        select COUNT(*) FROM user where sex=#{sex} AND DATE_SUB(NOW(),INTERVAL #{day} day)&lt; rigest_date
+    </select>
+
+    <select id="queryByPro" resultType="pro">
+        select location 'name',count(location)'value' from `user` where sex=#{sex} GROUP BY location
+    </select>
+
+
+</mapper>
